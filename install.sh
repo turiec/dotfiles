@@ -13,5 +13,4 @@ else PROFPATH=$(grep 'Path=' profiles.ini | sed 's/^Path=//')
 fi
 cd -
 
-echo ./firefox/user.js ~/.mozilla/firefox/$PROFPATH
 cp ./firefox/user.js ~/.mozilla/firefox/$PROFPAT
