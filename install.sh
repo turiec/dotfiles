@@ -1,11 +1,35 @@
 #!/bin/bash
 
-echo =====> checking Vim instalation
+echo "=====> checking Vim instalation"
 command -v vim >/dev/null 2>&1 || {
-    echo >&2 "====> Vim is not installed. Installing...";
+	    echo >&2 "====> Vim is not installed. Installing...";
         sudo apt-get install vim; }
 
-echo =====> applying Firefox settings
+echo "=====> checking curl instalation (prerequisite for Vim plugins)"
+command -v curl >/dev/null 2>&1 || {
+    echo >&2 "====> Curl is not installed. Installing...";
+        sudo apt-get install curl; }
+
+echo "=====> installing Vim plugins"
+# === install Vim plugins ===
+# install pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# install vim-airline
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+echo "Remember to run :Helptags to generate help tags"
+
+# Add pathogen to .vimrc
+if ! grep --quiet "execute pathogen#infect()" ~/.vimrc; then
+    echo "execute pathogen#infect()" >> ~/.vimrc;
+fi
+
+# install Vundle plugin-manager
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
+echo "=====> applying Firefox settings"
 cd ~/.mozilla/firefox/
 if [[ $(grep '\[Profile[^0]\]' profiles.ini) ]]
 then PROFPATH=$(grep -E '^\[Profile|^Path|^Default' profiles.ini | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
