@@ -14,3 +14,10 @@ fi
 cd -
 
 cp ./firefox/user.js ~/.mozilla/firefox/$PROFPAT
+
+echo =====> checking Tmux instalation
+command -v tmux >/dev/null 2>&1 || {
+    echo >&2 "====> Tmux is not installed. Installing...";
+            sudo apt-get install tmux; }
+
+
