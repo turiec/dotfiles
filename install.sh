@@ -5,6 +5,9 @@ command -v vim >/dev/null 2>&1 || {
 	    echo >&2 "====> Vim is not installed. Installing...";
         sudo apt-get install vim; }
 
+echo "=====> copy .vimrc"
+cp ./vim/.vimrc ~/.vimrc
+
 echo "=====> checking curl instalation (prerequisite for Vim plugins)"
 command -v curl >/dev/null 2>&1 || {
     echo >&2 "====> Curl is not installed. Installing...";
