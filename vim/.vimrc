@@ -1,4 +1,5 @@
 " ===================================================
+"
 " === .vimrc - vim configuration file             ===
 " === author: Milan Ľudma <milan.ludma@gmail.com> ===
 " =================================================== 
@@ -14,13 +15,13 @@ set shiftwidth=4   " indent size
 set expandtab      " tab key inserts spaces instead of tab characters
 set smarttab       " tab goes to the next indent of the next tabstop
                    " when the cursor is at the beginning of a line
-set smartindent	   " 
+set smartindent    " 
 
 set hlsearch       " enable search highlighting
 set ignorecase     " ignore case when searching.
 set incsearch      " incremental search that shows partial matches.
 set smartcase      " auto-switch search to case-sensitive when query contains
-				   " an uppercase letter.
+                   " an uppercase letter.
 
 set ruler          " always show cursor position
 "set cursorline     " highlight the line currently under cursor
@@ -29,7 +30,9 @@ set noerrorbells   " disable beep on errors
 "set visualbell    " flash the screen instead of beeping on errors
 set title          " set the window’s title - filename
 
-
+" special characters used to display hidden whitespaces (fnc: ToggleWhitespacesMode)
+let g:lstchars_mode=0 " initial - white chars hidden
+set nolist
 
 set clipboard=unnamed " lubo
 set pastetoggle=<F3>  " lubo
@@ -184,9 +187,26 @@ function! g:ToggleNumberMode()
   endif
 endfunction
 
+" use Ctrl+W to toggle displaying whitespace characters
+" no characters -> eol, tab, nbsp, extends, trail -> + space
+function! g:ToggleWhitespacesMode()
+  if g:lstchars_mode == 0
+     set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•
+     set list
+     let g:lstchars_mode=1
+  elseif g:lstchars_mode == 1
+     set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•,space:·
+     set list
+     let g:lstchars_mode=2
+  else
+     set nolist
+     let g:lstchars_mode=0
+  endif
+endfunction
 " ========== KEY MAPPINGS ==========
 nnoremap <silent><C-L> :call g:ToggleNumberMode()<cr>
+nnoremap <silent><C-W> :call g:ToggleWhitespacesMode()<cr>
 
-" ==== custom commands                                                          
-"command JsonPretty execute ":%!python -m json.tool"                                 
-"set secure   
+" ==== custom commands
+"command JsonPretty execute ":%!python -m json.tool"
+"set secure
