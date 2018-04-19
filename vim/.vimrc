@@ -28,6 +28,7 @@ set ruler          " always show cursor position
 set noerrorbells   " disable beep on errors
 "set visualbell    " flash the screen instead of beeping on errors
 set title          " set the window’s title - filename
+let mapleader=","  " set <leader> key to <,>
 
 " special characters used to display hidden whitespaces (fnc: ToggleWhitespacesMode)
 let g:lstchars_mode=0 " initial - whitechars hidden
@@ -58,6 +59,10 @@ set st=4 sw=4 et
 let &colorcolumn="80"
 highlight ColorColumn ctermbg=gray guibg=gray
 
+"Invisible character colors 
+highlight NonText guifg=#7a7a7a       " #4a4a59
+highlight SpecialKey guifg=#7a7a7a    " #4a4a59
+
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
@@ -87,7 +92,7 @@ let g:syntastic_yaml_checkers = ['jsyaml']
 let g:syntastic_html_tidy_exec = 'tidy5'
 
 " === flake8
-let g:flake8_show_in_file=1
+	let g:flake8_show_in_file=1
 
 " ==== snippets
 let g:UltiSnipsExpandTrigger="<A-ENTER>"
@@ -149,6 +154,7 @@ Plugin 'tpope/vim-surround'
 "Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'ap/vim-css-color'
 "Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'Yggdroot/indentLine'               " displays indention thin vertical lines
 
 " --- moving / searching ---
 "Plugin 'easymotion/vim-easymotion'
@@ -190,11 +196,12 @@ endfunction
 " no characters -> eol, tab, nbsp, extends, trail -> + space
 function! g:ToggleWhitespacesMode()
   if g:lstchars_mode == 0
-     set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•
+     "set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•
+     set listchars=eol:↲,tab:→\ ,nbsp:␣,precedes:«,extends:»,trail:•
      set list
      let g:lstchars_mode=1
   elseif g:lstchars_mode == 1
-     set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•,space:·
+     set listchars=eol:↲,tab:→\ ,nbsp:␣,precedes:«,extends:»,trail:•,space:·
      set list
      let g:lstchars_mode=2
   else
@@ -204,9 +211,11 @@ function! g:ToggleWhitespacesMode()
 endfunction
 
 " ========== KEY MAPPINGS ==========
-nnoremap <silent><C-L> :call g:ToggleNumberMode()<cr>
-nnoremap <silent><C-W> :call g:ToggleWhitespacesMode()<cr>
-nmap <leader>l :call g:ToggleWhiteSpacesMode()<cr>
+"nnoremap <silent><C-L> :call g:ToggleNumberMode()<cr>
+nmap <leader>l :call g:ToggleNumberMode()<cr>
+"nnoremap <silent><C-W> :call g:ToggleWhitespacesMode()<cr>
+nmap <leader>w :call g:ToggleWhitespacesMode()<cr>
+nmap <leader>r :source $MYVIMRC<cr>
 
 " ==== custom commands
 "command JsonPretty execute ":%!python -m json.tool"
