@@ -1,5 +1,4 @@
 " ===================================================
-"
 " === .vimrc - vim configuration file             ===
 " === author: Milan Ľudma <milan.ludma@gmail.com> ===
 " =================================================== 
@@ -31,7 +30,7 @@ set noerrorbells   " disable beep on errors
 set title          " set the window’s title - filename
 
 " special characters used to display hidden whitespaces (fnc: ToggleWhitespacesMode)
-let g:lstchars_mode=0 " initial - white chars hidden
+let g:lstchars_mode=0 " initial - whitechars hidden
 set nolist
 
 set clipboard=unnamed " lubo
@@ -203,9 +202,11 @@ function! g:ToggleWhitespacesMode()
      let g:lstchars_mode=0
   endif
 endfunction
+
 " ========== KEY MAPPINGS ==========
 nnoremap <silent><C-L> :call g:ToggleNumberMode()<cr>
 nnoremap <silent><C-W> :call g:ToggleWhitespacesMode()<cr>
+nmap <leader>l :call g:ToggleWhiteSpacesMode()<cr>
 
 " ==== custom commands
 "command JsonPretty execute ":%!python -m json.tool"
