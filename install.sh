@@ -48,3 +48,8 @@ command -v tmux >/dev/null 2>&1 || {
             sudo apt-get install tmux; }
 
 
+echo =====> Copying bash settings
+cp bash/.b* ~/
+
+echo =====> Reload bash settings
+source ~/.bashrc

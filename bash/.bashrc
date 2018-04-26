@@ -220,6 +220,27 @@ if [ -s ~/.nvm/nvm.sh ]; then
 fi
 
 ## ------------------------------
+## -- 3a) MLU defined code     --
+## ------------------------------
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+	    . ~/.bash_aliases
+    fi
+
+
+## ------------------------------
 ## -- 3) User-customized code  --
 ## ------------------------------
 
