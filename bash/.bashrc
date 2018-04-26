@@ -245,4 +245,6 @@ if [ -f ~/.bash_aliases ]; then
 ## ------------------------------
 
 ## Define any user-specific variables you want here.
-source ~/.bashrc_custom
+if [ -f ~/.bashrc_custom ]; then
+    source ~/.bashrc_custom
+fi

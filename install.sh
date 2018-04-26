@@ -47,9 +47,9 @@ command -v tmux >/dev/null 2>&1 || {
     echo >&2 "====> Tmux is not installed. Installing...";
             sudo apt-get install tmux; }
 
-
 echo =====> Copying bash settings
 cp bash/.b* ~/
 
 echo =====> Reload bash settings
-source ~/.bashrc
+#source ~/.bashrc
+. ~/.bashrc
