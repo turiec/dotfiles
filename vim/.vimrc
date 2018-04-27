@@ -212,10 +212,10 @@ endfunction
 
 " ========== KEY MAPPINGS ==========
 "nnoremap <silent><C-L> :call g:ToggleNumberMode()<cr>
-nmap <leader>l :call g:ToggleNumberMode()<cr>
+nnoremap <leader>l :call g:ToggleNumberMode()<cr>
 "nnoremap <silent><C-W> :call g:ToggleWhitespacesMode()<cr>
-nmap <leader>w :call g:ToggleWhitespacesMode()<cr>
-nmap <leader>r :source $MYVIMRC<cr>
+nnoremap <leader>w :call g:ToggleWhitespacesMode()<cr>
+nnoremap <leader>r :source $MYVIMRC<cr>
 
 " ==== custom commands
 "command JsonPretty execute ":%!python -m json.tool"
