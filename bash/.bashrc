@@ -122,7 +122,7 @@ fi
 # Do not save trivial one and two character commands on the history list
 # HISTIGNORE='?:??'
 # command starting with space ' *'
-export HISTIGNORE=' *"?:??:history*:clear:exit:pwd:top'
+export HISTIGNORE=' *:?:??:history*:clear:exit:pwd:top'
 
 
 ## ------------------------------
