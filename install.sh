@@ -16,17 +16,17 @@ command -v curl >/dev/null 2>&1 || {
 echo "=====> installing Vim plugins"
 # === install Vim plugins ===
 # install pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+# curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # install vim-airline
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-echo "Remember to run :Helptags to generate help tags"
+# git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+# echo "Remember to run :Helptags to generate help tags"
 
 # Add pathogen to .vimrc
-if ! grep --quiet "execute pathogen#infect()" ~/.vimrc; then
-    echo "execute pathogen#infect()" >> ~/.vimrc;
-fi
+#if ! grep --quiet "execute pathogen#infect()" ~/.vimrc; then
+#    echo "execute pathogen#infect()" >> ~/.vimrc;
+#fi
 
 # install Vundle plugin-manager
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
