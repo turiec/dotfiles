@@ -124,3 +124,7 @@ fi
 if [ -f ~/.bashrc_custom ]; then
     source ~/.bashrc_custom
 fi
+
+# reload bashrc
+. ~/.bashrc
+
