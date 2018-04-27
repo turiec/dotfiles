@@ -116,6 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# ignore commands from history
+# The '&' suppresses duplicate entries.
+# Do not save trivial one and two character commands on the history list
+# HISTIGNORE='?:??'
+# command starting with space ' *'
+export HISTIGNORE=' *"?:??:history*:clear:exit:pwd:top'
+
+
 ## ------------------------------
 ## -- 3) User-customized code  --
 ## ------------------------------
