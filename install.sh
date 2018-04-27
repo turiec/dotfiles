@@ -42,14 +42,14 @@ cd -
 
 cp ./firefox/user.js ~/.mozilla/firefox/$PROFPAT
 
-echo =====> checking Tmux instalation
+echo "=====> checking Tmux instalation"
 command -v tmux >/dev/null 2>&1 || {
     echo >&2 "====> Tmux is not installed. Installing...";
             sudo apt-get install tmux; }
 
-echo =====> Copying bash settings
+echo "=====> Copying bash settings"
 cp bash/.b* ~/
 
-echo =====> Reload bash settings
+echo "=====> Reload bash settings"
 #source ~/.bashrc
 . ~/.bashrc
