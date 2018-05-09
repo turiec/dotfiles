@@ -50,6 +50,11 @@ command -v tmux >/dev/null 2>&1 || {
 echo "=====> Copying bash settings"
 cp bash/.b* ~/
 
+echo "=====> Copying git settings"
+if [ -f git/git_config.sh ]; then
+        . git/git_config.sh
+fi
+
 echo "=====> Reload bash settings"
 #source ~/.bashrc
 . ~/.bashrc
