@@ -138,3 +138,20 @@ export HISTIGNORE=' *:?:??:history*:clear:exit:pwd:top'
 if [ -f ~/.bashrc_custom ]; then
     source ~/.bashrc_custom
 fi
+
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+#source ~/.autoenv/activate.sh
+
+# Function to automatically activate/deactivate python venv
+function cd() {
+  if [[ -d ./venv ]] ; then
+    deactivate
+  fi
+
+  builtin cd $1
+
+  if [[ -d ./venv ]] ; then
+    . ./venv/bin/activate
+  fi
+}

@@ -55,6 +55,10 @@ if [ -f git/git_config.sh ]; then
         . git/git_config.sh
 fi
 
+
+echo "=====> Cloning informative git prompt for bash"
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
 echo "=====> Reload bash settings"
 #source ~/.bashrc
 . ~/.bashrc
