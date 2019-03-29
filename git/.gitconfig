@@ -1,0 +1,20 @@
+#[user]
+#       email = turiec.online@gmail.com
+#       name = Milan Ludma
+[alias]
+       st = status
+       hist = log --color --branches --remotes --tags --graph --pretty=format:'%C(auto)%h%Creset %<(12) %C(green)%cr %C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit -n 15
+       history = log --color --branches --remotes --tags --graph --pretty=format:'%C(auto)%h%Creset %<(12) %C(green)%cr %C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit
+[color]
+       ui = auto
+[merge]
+       tool = p4merge
+[diff]
+       tool = p4merge
+[mergetool]
+       prompt = false
+[difftool]
+       prompt = false
+[core]
+       editor = vim
+       excludesfile = /home/dev/.gitignore
