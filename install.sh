@@ -47,6 +47,9 @@ command -v tmux >/dev/null 2>&1 || {
     echo >&2 "====> Tmux is not installed. Installing...";
             sudo apt-get install tmux; }
 
+echo "=====> Installing screenfetch"
+sudo apt-get install screenfetch
+
 echo "=====> Copying bash settings"
 cp bash/.b* ~/
 

@@ -143,6 +143,8 @@ GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 #source ~/.autoenv/activate.sh
 
+screenfetch
+
 # Function to automatically activate/deactivate python venv
 function cd() {
   if [[ -d ./venv ]] ; then
